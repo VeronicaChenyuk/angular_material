@@ -7,6 +7,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from "./material/material.module";
 import { MatIconModule } from "@angular/material/icon";
 import { MatBadgeModule } from "@angular/material/badge";
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from "@angular/material/sidenav";
+import { FormsModule } from "@angular/forms";
+import { MatMenuModule} from "@angular/material/menu";
 
 @NgModule({
   declarations: [
@@ -18,7 +23,12 @@ import { MatBadgeModule } from "@angular/material/badge";
     BrowserAnimationsModule,
     MaterialModule,
     MatIconModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatProgressSpinnerModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    FormsModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
