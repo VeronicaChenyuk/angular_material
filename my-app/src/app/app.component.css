@@ -25,3 +25,6 @@ mat-sidenav {
 .center{
   margin: 10rem;
 }
+mat-grid-tile{
+  background-color: lightskyblue;
+}

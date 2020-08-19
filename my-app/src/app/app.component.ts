@@ -12,6 +12,11 @@ export class AppComponent {
   notifications = 0;
   showSpinner = false;
 
+  logChange(index) {
+    console.log(index);
+
+  }
+
   log(state) {
     console.log(state);
   }
