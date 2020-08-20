@@ -7,21 +7,22 @@
   </div>
 </mat-toolbar>
 
-<mat-sidenav-container>
-  <mat-sidenav #sidenav mode="side" (opened)="log('Opened')" (closed)="log('Closed')" [(opened)]="opened">Sidenav
-  </mat-sidenav>
-  <mat-sidenav-content>Main
-    <button (click)="opened=!opened">Toggel Opened</button>
-    <button (click)="sidenav.open()">Open</button>
-    <button (click)="sidenav.close()">Close</button>
-    <button (click)="sidenav.toggle()">Toggle</button>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+<div>
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav mode="side" (opened)="log('Opened')" (closed)="log('Closed')" [(opened)]="opened">Sidenav
+    </mat-sidenav>
+    <mat-sidenav-content>Main
+      <button (click)="opened=!opened">Toggel Opened</button>
+      <button (click)="sidenav.open()">Open</button>
+      <button (click)="sidenav.close()">Close</button>
+      <button (click)="sidenav.toggle()">Toggle</button>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 
-<mat-progress-spinner value='100'></mat-progress-spinner>
-<mat-spinner *ngIf="showSpinner" color="accent"></mat-spinner>
-<button (click)="loadData()">Load Data</button>
-
+  <mat-progress-spinner value='100'></mat-progress-spinner>
+  <mat-spinner *ngIf="showSpinner" color="accent"></mat-spinner>
+  <button (click)="loadData()">Load Data</button>
+</div>
 <div>
   <div>
     <span [matBadge]="notifications" [matBadgeHidden]="notifications===0">Notifications</span>
@@ -83,23 +84,23 @@
   <button mat-fab>Fab</button>
   <button mat-mini-fab>MiniFab</button>
 </div>
+<div>
+  <div class="mat-headline">This is a heading for h1</div>
+  <div class="mat-title">This is a heading for h2</div>
+  <div class="mat-subheading-1">This is a heading for h3</div>
+  <div class="mat-subheading-2">This is a heading for h4</div>
 
-<div class="mat-headline">This is a heading for h1</div>
-<div class="mat-title">This is a heading for h2</div>
-<div class="mat-subheading-1">This is a heading for h3</div>
-<div class="mat-subheading-2">This is a heading for h4</div>
+  <div class="mat-body-1">This is body text</div>
+  <div class="mat-body-2">This is bold body text</div>
+  <div class="mat-caption">This is caption text</div>
 
-<div class="mat-body-1">This is body text</div>
-<div class="mat-body-2">This is bold body text</div>
-<div class="mat-caption">This is caption text</div>
-
-<div class="mat-typography">
-  <h1>This is a heading for h1</h1>
-  <h2>This is a heading for h2</h2>
-  <h3>This is a heading for h3</h3>
-  <h4>This is a heading for h4</h4>
+  <div class="mat-typography">
+    <h1>This is a heading for h1</h1>
+    <h2>This is a heading for h2</h2>
+    <h3>This is a heading for h3</h3>
+    <h4>This is a heading for h4</h4>
+  </div>
 </div>
-
 <mat-menu #appMenu='matMenu' xPosition="after" yPosition="above">
   <button mat-menu-item [matMenuTriggerFor]="subMenu">Frontend</button>
   <button mat-menu-item>Backend</button>
@@ -224,3 +225,94 @@
     <p>Order Details</p>
   </mat-step>
 </mat-vertical-stepper>
+
+<mat-form-field floatLabel="auto" hideRequiredMarker appearance="fill" color="accent">
+  <mat-label>Name</mat-label>
+  <input matInput required>
+  <mat-hint align="end">Min 5 characters</mat-hint>
+
+</mat-form-field>
+<mat-form-field floatLabel="auto" hideRequiredMarker appearance="outline" color="warn">
+  <mat-label>Name</mat-label>
+  <input matInput required>
+  <mat-hint align="end">Min 5 characters</mat-hint>
+</mat-form-field>
+
+<div>
+  <mat-form-field>
+    <mat-label>Topic</mat-label>
+    <mat-select [(value)]="slectedValue" multiple>
+      <mat-option>None</mat-option>
+      <mat-optgroup label="Web">
+        <mat-option value="angular">Angular</mat-option>
+        <mat-option value="react">React</mat-option>
+        <mat-option value="vue">Vue</mat-option>
+      </mat-optgroup>
+      <mat-optgroup label="Mobile">
+        <mat-option value="iconic">iconic</mat-option>
+        <mat-option value="reactnative">reactnative</mat-option>
+      </mat-optgroup>
+    </mat-select>
+  </mat-form-field>
+  {{slectedValue}}
+</div>
+
+<form>
+  <mat-form-field>
+    <input type="text" matInput [matAutocomplete]="auto" [formControl]="myControl" />
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
+
+<div>
+  <mat-checkbox>
+    Subscribe
+  </mat-checkbox>
+  <br>
+  <mat-checkbox labelPosition="before">
+    Subscribe
+  </mat-checkbox>
+  <br>
+  <mat-checkbox color="primary">
+    Subscribe
+  </mat-checkbox>
+  <br>
+  <mat-checkbox color="warn">
+    Subscribe
+  </mat-checkbox>
+</div>
+
+<div>
+  <mat-radio-group>
+    <mat-radio-button value="angular" color="primary">Angular</mat-radio-button>
+    <mat-radio-button value="react" color="warn">React</mat-radio-button>
+    <mat-radio-button value="vue">Vue</mat-radio-button>
+  </mat-radio-group>
+</div>
+
+<div>
+  <mat-form-field>
+    <input matInput [matDatepicker]="myDatePicker" [matDatepickerFilter]="dateFilter">
+    <mat-datepicker-toggle [for]="myDatePicker" matSuffix></mat-datepicker-toggle>
+    <mat-datepicker #myDatePicker></mat-datepicker>
+  </mat-form-field>
+</div>
+
+<div>
+  <button mat-raised-button matTooltip="Welcome to Codevolution" matTooltipPosition="after" matTooltipShowDelay="2000"
+    matTooltipHideDelay="2000">
+    Hello
+  </button>
+</div>
+
+<div>
+  <button mat-button (click)="openSnackBar('Item deleted','Undo')">
+    Delete </button>
+  <button mat-button (click)="openCustomSnackBar()">
+    Show custom snackbar
+  </button>
+</div>
