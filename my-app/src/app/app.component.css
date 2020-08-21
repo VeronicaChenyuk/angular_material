@@ -22,9 +22,23 @@ mat-sidenav {
   background-color: lightcoral;
   width: 200px;
 }
-.center{
+.center {
   margin: 10rem;
 }
-mat-grid-tile{
+mat-grid-tile {
   background-color: lightskyblue;
+}
+table {
+  width: 100%;
+}
+.number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid maroon;
+  box-sizing: border-box;
+  height: 100px;
+}
+.container{
+  height: 400px;
 }

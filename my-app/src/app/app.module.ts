@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent,CustomSnackBarComponent } from './app.component';
+import { AppComponent, CustomSnackBarComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from "./material/material.module";
 import { MatIconModule } from "@angular/material/icon";
@@ -29,14 +29,21 @@ import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatTooltipModule } from "@angular/material/tooltip";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
+import { MatDialogModule } from "@angular/material/dialog";
+import { DialogExampleComponent } from './dialog-example/dialog-example.component';
+import { MatTableModule } from "@angular/material/table";
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from "@angular/material/sort";
+import { ScrollingModule } from "@angular/cdk/scrolling";
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CustomSnackBarComponent
+    CustomSnackBarComponent,
+    DialogExampleComponent
   ],
-  entryComponents:[CustomSnackBarComponent],
+  entryComponents: [CustomSnackBarComponent, DialogExampleComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -67,6 +74,11 @@ import { MatSnackBarModule } from "@angular/material/snack-bar";
     MatNativeDateModule,
     MatTooltipModule,
     MatSnackBarModule,
+    MatDialogModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    ScrollingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
